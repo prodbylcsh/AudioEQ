@@ -65,7 +65,7 @@
           uiLastY_Normal="257" uiopen_Normal="0">
     <PLUGIN name="vstPlayer" format="VST3" category="Instrument|Synth" manufacturer="yourcompany"
             version="2.3.4" file="C:\Program Files\Common Files\VST3\vstPlayer.vst3"
-            uniqueId="8fdefd46" isInstrument="1" fileTime="183bda3dae6" infoUpdateTime="183bdb7c9b7"
+            uniqueId="8fdefd46" isInstrument="1" fileTime="183bda3dae6" infoUpdateTime="183bdffba26"
             numInputs="0" numOutputs="0" isShell="0" hasARAExtension="0"
             uid="ee63cfc"/>
     <STATE>714.VMjLgDr....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9PSMw3hUMczXWEjKt3hYt3hKt.kKt3hKt3BS5gEcyQjKtPjcvYTR5AkaA4hKtfjYikWTGIlKHYmKD4hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKt3hKAwzYUMTRSgjSC4hKtXWdOMCLFElYXcUV30zUZUGMV8DZDk1R1gjPHsFMwfUcQYkVzMlUOgFUEUkQvHjSncSZOYlcCE1YMczXlQ0UZc0ZFkkdmY0SnY1PLYGRBgDLqYjTqsVLY4VTW8DZTMDS1gjPHY2cVgEM2YkV4EkLSQGLogzcHIDR3UkQhsVQFMFNHIDSn4BZiU2cVM1bUY0SnQTZKYGRBgjcEY0X4UkQYgCRRwDZyLzS1cmUXQycVoUdQ01S2fkUZIWUFgDcEYUXqASZHMzaCcUUMcUV30zQWkWSFoUcIYUVxcWQQU2XsElb3XEVp0zQWgGNrQFZIcUV4MGaKISQrMFZ2f1S2biPhIWQVQlbqEiX5QyPOUmcVgUdQ01St3hKt3hKt3hKt3hKJUELPUTPqI1aYcEV5UkQQcVTWgkKDAkKBs1QhcVSxHlKDAkKC4BTG4hKt3hKt3hKt3FUUMTUDQEdqw1XmE0UYQTQFM1YAwyKIMzasA2atUlaz4COuX0TTMCTrU2Yo41TzEFck4C.</STATE>
@@ -78,11 +78,10 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <FILTER uid="6" x="0.48625" y="0.5221774193548387" useARA="0" uiLastX_Normal="156"
-          uiLastY_Normal="74" uiopen_Normal="0">
+  <FILTER uid="7" x="0.36375" y="0.5100806451612904" useARA="0">
     <PLUGIN name="AudioEQ" format="VST3" category="Fx" manufacturer="yourcompany"
-            version="1.0.0" file="C:\Program Files\Common Files\VST3\AudioEQ.vst3"
-            uniqueId="ffacd91a" isInstrument="0" fileTime="183b7807b22" infoUpdateTime="183bdb7c9b8"
+            version="1.0.0" file="C:\Programming\AudioEQ\Builds\VisualStudio2022\x64\Debug\VST3\AudioEQ.vst3"
+            uniqueId="ffacd91a" isInstrument="0" fileTime="183bdeeb705" infoUpdateTime="183bdffba26"
             numInputs="2" numOutputs="2" isShell="0" hasARAExtension="0"
             uid="e9598ec9"/>
     <STATE>191.VMjLgXK....O+fWarAhckI2bo8la8HRLt.iHfTlai8FYo41Y8HRUTYTK3HxO9.BOVMEUy.Ea0cVZtMEcgQWY9vSRC8Vav8lak4Fc9XCLt3hKt3hKt3hKt3hYRUUSTEETIckVwTjQisVTTgkdEYjKAQjYPQSPWgUdMcjKAQjct3hdA4hKt3hKt3hKtnTUv.UQAslXuk0UXoWUFE0YQcEV77RRC8Vav8lak4Fc9vyKVMEUy.Ea0cVZtMEcgQWY9..</STATE>
@@ -95,8 +94,8 @@
       </OUTPUTS>
     </LAYOUT>
   </FILTER>
-  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="6" dstChannel="0"/>
-  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="6" dstChannel="1"/>
-  <CONNECTION srcFilter="6" srcChannel="0" dstFilter="3" dstChannel="0"/>
-  <CONNECTION srcFilter="6" srcChannel="1" dstFilter="3" dstChannel="1"/>
+  <CONNECTION srcFilter="5" srcChannel="0" dstFilter="7" dstChannel="0"/>
+  <CONNECTION srcFilter="5" srcChannel="1" dstFilter="7" dstChannel="1"/>
+  <CONNECTION srcFilter="7" srcChannel="0" dstFilter="3" dstChannel="0"/>
+  <CONNECTION srcFilter="7" srcChannel="1" dstFilter="3" dstChannel="1"/>
 </FILTERGRAPH>
