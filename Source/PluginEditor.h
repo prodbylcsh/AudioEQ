@@ -37,7 +37,17 @@ struct FFTDataGenerator
 
         for (int i = 0; i < numBins; ++i)
         {
-            fftData[i] /= (float)numBins;
+            auto v = fftData[i];
+            //            fftData[i] /= (float) numBins;
+            if (!std::isinf(v) && !std::isnan(v))
+            {
+                v /= float(numBins);
+            }
+            else
+            {
+                v = 0.f;
+            }
+            fftData[i] = v;
         }
 
         for (int i = 0; i < numBins; ++i)
@@ -97,12 +107,14 @@ struct AnalyzerPathGenerator
         {
             return juce::jmap(v,
                 negativeInfinity, 0.f,
-                float(bottom), top);
+                float(bottom+10), top);
         };
 
         auto y = map(renderData[0]);
 
-        jassert(!std::isnan(y) && !std::isinf(y));
+        //jassert(!std::isnan(y) && !std::isinf(y));
+        if (std::isnan(y) || std::isinf(y))
+            y = bottom;
 
         p.startNewSubPath(0, y);
 
@@ -235,9 +247,20 @@ private:
 
     MonoChain monoChain;
 
+    void updateResponseCurve();
+
+    juce::Path responseCurve;
+
     void updateChain();
 
-    juce::Image background;
+    //juce::Image background;
+
+    void drawBackgroundGrid(juce::Graphics& g);
+    void drawTextLabels(juce::Graphics& g);
+
+    std::vector<float> getFrequencies();
+    std::vector<float> getGains();
+    std::vector<float> getXs(const std::vector<float>& freqs, float left, float width);
 
     juce::Rectangle<int> getRenderArea();
 
@@ -249,6 +272,7 @@ private:
 };
 
 struct PowerButton : juce::ToggleButton { };
+
 struct AnalyzerButton : juce::ToggleButton 
 {
     void resized() override
@@ -308,16 +332,17 @@ private:
                 lowCutSlopeSliderAttachment,
                 highCutSlopeSliderAttachment;
 
+    std::vector<juce::Component*> getComps();
+
     PowerButton lowcutBypassButton, peakBypassButton, highcutBypassButton;
     AnalyzerButton analyzerEnabledButton;
 
     using ButtonAttachment = APVTS::ButtonAttachment;
+
     ButtonAttachment lowcutBypassButtonAttachment,
         peakBypassButtonAttachment,
         highcutBypassButtonAttachment,
         analyzerEnabledButtonAttachment;
-
-    std::vector<juce::Component*> getComps();
 
     LookAndFeel lnf;
 

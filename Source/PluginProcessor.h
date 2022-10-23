@@ -23,6 +23,7 @@ struct Fifo
         for (auto& buffer : buffers)
         {
             buffer.setSize(numChannels, numSamples, false, true, true);
+            buffer.clear();
         }
     }
 
