@@ -25,10 +25,12 @@ void LookAndFeel::drawRotarySlider(juce::Graphics& g,
 
     auto enabled = slider.isEnabled();
 
-    g.setColour(enabled ? Colour(97u, 18u, 167u) : Colours::darkgrey);
+    //color palette https://coolors.co/palette/ccd5ae-dbe1bc-e9edc9-f4f4d5-fefae0-fcf4d7-faedcd-e7c8a0-deb68a-d4a373
+
+    g.setColour(enabled ? Colour(233u, 237u, 201u) : Colours::darkgrey); //E9EDC9
     g.fillEllipse(bounds);
 
-    g.setColour(enabled ? Colour(255u, 154u, 1u) : Colours::grey);
+    g.setColour(enabled ? Colour(90u, 59u, 28u) : Colour(90u, 59u, 28u)); //5A3B1C a E7C8A0
     g.drawEllipse(bounds, 1.f);
 
     if (auto* rswl = dynamic_cast<RotarySliderWithLabels*>(&slider))
@@ -59,10 +61,10 @@ void LookAndFeel::drawRotarySlider(juce::Graphics& g,
         r.setSize(strWidth + 4, rswl->getTextHeight() + 2);
         r.setCentre(bounds.getCentre());
 
-        g.setColour(enabled ? Colours::black : Colours::darkgrey);
+        g.setColour(enabled ? Colour(86u, 56u, 26u) : Colour(254u, 250u, 224u)); //56381A a FEFAE0
         g.fillRect(r);
 
-        g.setColour(enabled ? Colours::white : Colours::lightgrey);
+        g.setColour(enabled ? Colour(254u, 250u, 224u) : Colour(86u, 56u, 26u)); //FEFAE0 56381A
         g.drawFittedText(text, r.toNearestInt(), juce::Justification::centred, 1);
     }
 }
@@ -101,7 +103,7 @@ void LookAndFeel::drawToggleButton(juce::Graphics& g,
 
         PathStrokeType pst(2.f, PathStrokeType::JointStyle::curved);
 
-        auto color = toggleButton.getToggleState() ? Colours::dimgrey : Colour(0u, 172u, 1u);
+        auto color = toggleButton.getToggleState() ? Colours::darkgrey : Colour(181u, 228u, 140u); //2b9348 a b5e48c
 
         g.setColour(color);
         g.strokePath(powerButton, pst);
@@ -109,7 +111,7 @@ void LookAndFeel::drawToggleButton(juce::Graphics& g,
     }
     else if (auto* analyzerButton = dynamic_cast<AnalyzerButton*>(&toggleButton))
     {
-        auto color = !toggleButton.getToggleState() ? Colours::dimgrey : Colour(0u, 172u, 1u);
+        auto color = !toggleButton.getToggleState() ? Colours::darkgrey : Colour(181u, 228u, 140u); //2b9348 a b5e48c
 
         g.setColour(color);
 
@@ -325,7 +327,7 @@ void ResponseCurveComponent::paint(juce::Graphics& g)
 {
     using namespace juce;
     // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll(Colours::black);
+    g.fillAll(Colour(39u, 26u, 12u)); //271a0c
 
     drawBackgroundGrid(g);
 
@@ -346,7 +348,7 @@ void ResponseCurveComponent::paint(juce::Graphics& g)
         g.strokePath(rightChannelFFTPath, PathStrokeType(1.f));
     }
 
-    g.setColour(Colours::white);
+    g.setColour(Colour(194u, 255u, 249u)); //C2FFF9 - èára
     g.strokePath(responseCurve, PathStrokeType(2.f));
 
     Path border;
@@ -356,7 +358,7 @@ void ResponseCurveComponent::paint(juce::Graphics& g)
     border.addRoundedRectangle(getRenderArea(), 4);
     border.addRectangle(getLocalBounds());
 
-    g.setColour(Colours::black);
+    g.setColour(Colour(27u, 18u, 8u)); //1b1208
 
     g.fillPath(border);
 
@@ -423,7 +425,7 @@ void ResponseCurveComponent::drawBackgroundGrid(juce::Graphics& g)
     {
         auto y = jmap(gDb, -24.f, 24.f, float(bottom), float(top));
 
-        g.setColour(gDb == 0.f ? Colour(0u, 172u, 1u) : Colours::darkgrey);
+        g.setColour(gDb == 0.f ? Colour(0u, 172u, 1u) : Colours::darkgrey); //slider values font, slider label font
         g.drawHorizontalLine(y, left, right);
     }
 }
@@ -431,7 +433,7 @@ void ResponseCurveComponent::drawBackgroundGrid(juce::Graphics& g)
 void ResponseCurveComponent::drawTextLabels(juce::Graphics& g)
 {
     using namespace juce;
-    g.setColour(Colours::lightgrey);
+    g.setColour(Colours::lightgrey); //buï analyzer font color nebo button label color nebo analyzer grid color
     const int fontHeight = 10;
     g.setFont(fontHeight);
 
@@ -502,7 +504,7 @@ void ResponseCurveComponent::drawTextLabels(juce::Graphics& g)
         r.setX(1);
         textWidth = g.getCurrentFont().getStringWidth(str);
         r.setSize(textWidth, fontHeight);
-        g.setColour(Colours::lightgrey);
+        g.setColour(Colours::lightgrey); 
         g.drawFittedText(str, r, juce::Justification::centredLeft, 1);
     }
 }
@@ -742,7 +744,7 @@ void AudioEQAudioProcessorEditor::paint(juce::Graphics& g)
 {
     using namespace juce;
 
-    g.fillAll(Colours::black);
+    g.fillAll(Colour(27u, 18u, 8u)); //1b1208
 
     Path curve;
 
